@@ -12,7 +12,7 @@ const TodoList = () => {
   };
 
   // Maneja la pulsación de teclas en el input
-  const handleKeyPress = (e) => {
+  const handleKeyDown = (e) => {
     // Si se presiona Enter y la tarea no está vacía
     if (e.key === 'Enter' && newTask.trim() !== '') {
       // Añade la nueva tarea al array de tareas
@@ -30,25 +30,31 @@ const TodoList = () => {
 
   return (
     <div className="todo-list">
-      <h1>Enter your pending tasks in the entry below</h1>
+      {/* Título del componente */}
+      <h1>July 2024</h1>
+
       {/* Input para añadir nuevas tareas */}
       <input
         type="text"
-        placeholder="What needs to be done?"
+        placeholder="Add new task..."
         value={newTask}
         onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
+        onKeyDown={handleKeyDown}
       />
+
       {/* Lista de tareas */}
       <ul>
         {tasks.length === 0 ? (
           // Mensaje cuando no hay tareas
-          <li>No hay tareas, añadir tareas</li>
+          <li>No tasks, add a task</li>
         ) : (
           // Mapeo de las tareas existentes
           tasks.map((task, index) => (
             <li key={index}>
-              {task}
+              {/* Caja para el número de día */}
+              <div className="date-box">{index + 1}</div>
+              {/* Texto de la tarea */}
+              <span className="task-text">{task}</span>
               {/* Botón para eliminar tarea */}
               <span className="delete-icon" onClick={() => deleteTask(index)}>
                 ×
@@ -57,8 +63,11 @@ const TodoList = () => {
           ))
         )}
       </ul>
+
       {/* Contador de tareas */}
-      <div className="task-count">{tasks.length} item{tasks.length !== 1 ? 's' : ''} left</div>
+      <div className="task-count">
+        {tasks.length} item{tasks.length !== 1 ? 's' : ''}
+      </div>
     </div>
   );
 };
