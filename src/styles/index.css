@@ -66,4 +66,22 @@ body {
     margin-top: 10px;
     text-align: left;
     color: #888;
-  }
+  }/* Estilos para el botón de limpiar todas las tareas */
+.clear-all-button {
+  background-color: #e74c3c; 
+  color: white; 
+  border: none; 
+  border-radius: 5px;
+  padding: 10px 20px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+.clear-all-button:hover {
+  background-color: #c0392b; 
+}
+
+.clear-all-button:active {
+  transform: scale(0.98); /* Efecto de presión al hacer clic */
+}
